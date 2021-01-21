@@ -2,7 +2,7 @@
 // - Definire un array di oggetti; ogni oggetto rappresenta un'icona, che è caratterizzata da: nome, prefisso, tipo e famiglia.
 // - Utilizzando la funzione forEach e il template literal, visualizzare in pagina tutte le icone con il proprio nome.
 
-
+const box = document.getElementsByClassName('container')
 //DICHIARO IL MIO ARRAY DI OGGETTI;
 const listAnimals = [
   {name:'dog', family:'fas', prefisso:'fa-', tipo:'dog'},
@@ -18,7 +18,7 @@ const listAnimals = [
 ];
 
 
-// CICLO IL MIO ARRAY DI OOGGETTI E AD OGNI OGGETTO ASSEGNO UN BOX NELLA PAGINA;
+
 
 listAnimals.forEach((item) => {
   if (item.tipo  === 'dog') {
@@ -64,4 +64,59 @@ listAnimals.forEach((item) => {
 });
 
 
-//POSSIBILMENTE DA RIVEDERE CON UNA FUNZIONE;
+// POSSIBILE SOLUZIONE
+
+
+// listAnimals.forEach((item) => {
+// const{name , family , prefisso , tipo} = item;
+//
+//   box.innerHTML += `
+//
+//     <div>
+//     <i class="$(family) $(prefisso)$(tipo)" ></i>
+//     ${name}
+//    </div>
+//
+//   `
+// });
+
+
+
+
+
+
+
+// // ------------------------------------------------------------------ MILESTONE 2 -------------------------------------------------------------------------------
+//
+// - Definire un array di colori e associare ad ogni tipo di icona un colore.
+// - Visualizzare le icone di colore diverso in base al tipo.
+
+const squareContainer = document.getElementsByClassName('square')
+const colors = ['red', 'blue', 'yellow','black','grey','orange','lightblue','pink']
+const typeAnimal = [];
+
+
+
+  listAnimals.forEach((item) => {
+    if (!typeAnimal.includes(item.tipo)) {
+      typeAnimal.push(item.tipo)
+    }
+});
+
+ listAnimals.forEach((item) => {
+   const typeIndex = typeAnimal.indexOf(item.tipo)
+   if (typeIndex !== -1) {
+     item.color = colors[typeIndex];
+   }
+ });
+console.log(listAnimals);
+
+
+
+
+// // // ------------------------------------------------------------------ MILESTONE  -------------------------------------------------------------------------------
+//
+// - Aggiungere una select per filtrare le icone in base al tipo.
+// - Popolare le options della select dinamicamente e, ogni volta che cambia il valore selezionato, visualizzare le icone corrispondenti.
+//
+//
